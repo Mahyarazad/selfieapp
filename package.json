@@ -4,12 +4,12 @@
   "description": "This is SelfieData with Facial Expression Recognition",
   "main": "index.js",
   "dependencies": {
-
     "canvas": "^2.6.1",
+    "express": "^4.17.1",
     "face-api.js": "^0.22.2",
     "faceapi": "^1.0.1",
-    "express": "^4.17.1",
-    "nedb": "^1.8.0"
+    "nedb": "^1.8.0",
+    "nodejs": "0.0.0"
   },
   "engines": {
     "node": "10.x"
