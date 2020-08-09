@@ -1,7 +1,7 @@
 {
   "name": "selfeapp_faceapi",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is SelfieData with Facial Expression Recognition",
   "main": "index.js",
   "dependencies": {
     "canvas": "^2.6.1",
@@ -14,6 +14,14 @@
   "scripts": {
     "start": "index.js"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "Mahyar Azad",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mahyarazad/selfieapp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mahyarazad/selfieapp/issues"
+  },
+  "homepage": "https://github.com/mahyarazad/selfieapp#readme"
 }
