@@ -42,7 +42,7 @@ async function getData(){
       geolocation.textContent = item.Latitude + '° , ' + item.longitude + '°';
       const datetostring = new Date(item.Time).toLocaleString();
       date.textContent = 'Date: '+ datetostring;
-      image.src = item.img;
+      image.src = './pics/' + item._id + '.png';
       image.alt = "Picture to show the Mode"
       wrapper.append(mod,geolocation,date,image,space);
   	}

@@ -1,9 +1,16 @@
 const express = require('express');
 const app = express();
-const port = process.env.PORT;
+// const FileSaver = require('FileSaver');
+const fs = require("fs");
+
+// const bodyParser = require("body-parser");
+
+const port = process.env.PORT || 3000;
 const DataStore = require('nedb');
-const database = new DataStore('database.db');
-database.loadDatabase();
+const db = new DataStore('database.db');
+
+db.loadDatabase();
+
 
 app.listen(port, () => console.log('Listening at 3000'));
 app.use(express.static('public'));
@@ -12,13 +19,22 @@ app.use(express.json({ limit: '1mb' }));
 
 app.post('/api', (request,response) => {
   const data = request.body;
-  console.log(request.body);
-  database.insert({
+  db.insert({
+
     Latitude: data.lat,
     longitude: data.lon,
-    img: data.image64,
     Mode: data.mod,
     Time: Date.now()});
+
+    let base64Image = data.image64.split(';base64,').pop();
+    db.find({}).sort({Time:1}).exec((err,data) => {
+      fs.writeFile('public/logs/pics/'+ data[data.length-1]._id +'.png',base64Image,{encoding: 'base64'},(err)=>{
+        if (err) {
+          console.log(err);
+        }
+      });
+    });
+
   response.json({
     status: 'success',
     latitude: data.lat,
@@ -27,7 +43,7 @@ app.post('/api', (request,response) => {
 });
 
 app.get('/api', (request,response) => {
-  database.find({}).sort({Time:-1}).exec((err,data) => {
+  db.find({}).sort({Time:-1}).exec((err,data) => {
       if (err) {
         response.end();
         retrun(err)

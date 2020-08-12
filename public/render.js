@@ -19,7 +19,6 @@ if (button){
           const mod = document.getElementById('YourMode').value;
           const image64 = canvas.toDataURL();
           const data = {lat,lon,mod,image64};
-          console.log(data);
           const options = {
             method: 'POST',
             headers: {
