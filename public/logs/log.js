@@ -1,9 +1,12 @@
 
 async function getData(){
+
+
   const response = await fetch('/api');
   const data = await response.json();
   console.log(data);
   const list_items = data;
+
 
 
   const list_element = document.getElementById('list');
@@ -42,7 +45,8 @@ async function getData(){
       geolocation.textContent = item.Latitude + '° , ' + item.longitude + '°';
       const datetostring = new Date(item.Time).toLocaleString();
       date.textContent = 'Date: '+ datetostring;
-      image.src = './pics/' + item._id + '.png';
+      image.src = 'https://mahyarazad.s3.eu-central-1.amazonaws.com/' + item._id + '.png';
+      // image.src = './pics/' + item._id + '.png';
       image.alt = "Picture to show the Mode"
       wrapper.append(mod,geolocation,date,image,space);
   	}

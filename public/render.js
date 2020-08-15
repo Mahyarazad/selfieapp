@@ -17,7 +17,7 @@ if (button){
           const lat = position.coords.latitude;
           const lon = position.coords.longitude;
           const mod = document.getElementById('YourMode').value;
-          const image64 = canvas.toDataURL();
+          const image64 = canvas.toDataURL();      
           const data = {lat,lon,mod,image64};
           const options = {
             method: 'POST',
