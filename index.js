@@ -1,17 +1,12 @@
 const express = require('express');
-const Blob = require("cross-blob");
-// const AWS = require('aws-sdk/dist/aws-sdk-react-native');
 const AWS = require("aws-sdk");
 const Base64 = require('js-base64');
 const app = express();
 const fs = require("fs");
-
-
-
-
 const port = process.env.PORT || 3000;
 const DataStore = require('nedb');
-const db = new DataStore('database.db');
+const db = new DataStore({ filename: 'database.db', autoload: true });
+// You can issue commands right away
 
 db.loadDatabase();
 
@@ -23,18 +18,6 @@ const config = new AWS.Config({
   region: env.REGION,
 });
 const s3 = new AWS.S3(config);
-
-function _base64ToArrayBuffer(base64) {
-    var binary_string = Base64.atob(base64);
-    var len = binary_string.length;
-    var bytes = new Uint8Array(len);
-    for (var i = 0; i < len; i++) {
-        bytes[i] = binary_string.charCodeAt(i);
-    }
-    return bytes.buffer;
-}
-
-
 
 app.listen(port, () => console.log("Listening at port: %s",port));
 app.use(express.static('public'));
