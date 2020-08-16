@@ -5,6 +5,18 @@ const app = express();
 const fs = require("fs");
 const port = process.env.PORT || 3000;
 const DataStore = require('nedb');
+const client = require('pg');
+const Client = new client({
+  connectionString: process.env.DATABAS_URL,
+  ssl: {
+    rejectUnauthorized: false
+  }
+)};
+
+Client.connect();
+
+
+
 const db = new DataStore({ filename: 'database.db', autoload: true });
 // You can issue commands right away
 
