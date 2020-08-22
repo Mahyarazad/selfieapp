@@ -29,66 +29,8 @@ app.use(express.static('public'));
 app.use(express.json({ limit: '1mb' }));
 app.use(express.urlencoded({ extended:true }))
 
-// const connection = mysql.createConnection({
-//   host: 'localhost',
-//   port: 3306,
-//   user: 'root',
-//   password: 'KosKesh@950800',
-//   database: 'test1'
-//
-// });
-//
-
-// client.connect( err => {
-//   console.log('db connected');
-//   let query = client.query("SELECT * FROM Category_table", "test1", (err,resp)  =>{
-//     console.log(resp);
-//   });
-//   console.log("query.sql");
-// });
-// let channels = [];
-// let lessons = [];
-// app.post('/api/channels',(req,res)=>{
-//   const channelsinfo = req.body;
-//   channelsinfo.id = shortid.generate();
-//   channels.push(channelsinfo);
-//   console.log(channels);
-//   res.status(201).json(channelsinfo);
-// });
-//
-// app.get('/api/channels',(req,res)=>{
-//   res.status(200).json(channels);
-// });
-//
-// app.post('/api/lessons',(req,res)=>{
-//   const lessonsinfo = req.body;
-//   lessonsinfo.id = shortid.generate();
-//   lessons.push(lessonsinfo);
-//   console.log(lessons);
-//   res.status(201).json(lessonsinfo);
-// });
-//
-// app.get('/api/lessons',(req,res)=>{
-//   res.status(200).json(lessons);
-// });
-//
-// app.delete('/api/channels/:id',(req,res) => {
-//   const {id} = req.params;
-//   const find = channels.find(channel => channel.id === id);
-//   if (find) {
-//     channels = channels.filter(channel => channel.id !== id);
-//     res.status(200).json({message: 'deleted!'})
-//   } else {
-//     res
-//       .status(404)
-//       .json({ message: 'It cannot be find in channels'});
-//   }
-// })
 
 
-
-
-// app.use(multipartyMiddleware);
 const db = require('./models/index.js');
 app.post('/api', async (request,response) => {
   const data = await request.body;
