@@ -27,6 +27,7 @@
     "dialect": "postgres",
     "operatorsAliases": false,
     "URI":"postgres://sashgqshgytxka:6f4c2c67b64c0ac10cb6ff59bc24420432d1c130fbcc4a8d64606cd76c01d57f@ec2-54-224-124-241.compute-1.amazonaws.com:5432/d3s5v7bqku77rr",
+    "config.assets.version" = "1.1",
     "define": {
       "createdAt": "createdat",
       "updatedAt": "updatedat"
