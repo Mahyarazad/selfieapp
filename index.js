@@ -15,12 +15,12 @@ const client = new Client({
 });
 
 
-const env = require('./s3.env.js');
 
-const config = new AWS.Config({
-  accessKeyId: env.AWS_ACCESS_KEY,
-  secretAccessKey: env.AWS_SECRET_ACCESS_KEY,
-  region: env.REGION,
+const config = new AWS.S3({
+  accessKeyId: process.env.S3_KEY,
+  secretAccessKey: process.env.S3_SECRET,
+  region: process.env.S3_REGION,
+  bucket: process.env.S3_BUCKET
 });
 const s3 = new AWS.S3(config);
 
