@@ -1,0 +1,34 @@
+{
+  "development": {
+    "username": "apple",
+    "password": "password",
+    "database": "apple",
+    "host": "localhost",
+    "port": 5324,
+    "dialect": "postgresql",
+    "define": {
+      "createdAt": "createdat",
+      "updatedAt": "updatedat"
+    }
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "apple",
+    "password": "password",
+    "database": "apple",
+    "host": "localhost",
+    "dialect": "postgres",
+    "operatorsAliases": false,
+    "use_env_variable": "DATABASE_URL",
+    "define": {
+      "createdAt": "createdat",
+      "updatedAt": "updatedat"
+    }
+  }
+}

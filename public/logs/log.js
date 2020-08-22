@@ -41,9 +41,9 @@ async function getData(){
       space.id = "emptySpace";
 
       space.innerHTML = "<br>";
-      mod.textContent = item.Mode;
-      geolocation.textContent = item.Latitude + '° , ' + item.longitude + '°';
-      const datetostring = new Date(item.Time).toLocaleString();
+      mod.textContent = item.mod;
+      geolocation.textContent = item.lat + '° , ' + item.lon + '°';
+      const datetostring = new Date(item.createdat).toLocaleString();
       date.textContent = 'Date: '+ datetostring;
       image.src = 'https://mahyarazad.s3.eu-central-1.amazonaws.com/' + item._id + '.png';
       // image.src = './pics/' + item._id + '.png';
