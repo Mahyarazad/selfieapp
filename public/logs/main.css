@@ -12,12 +12,13 @@ body {
 h1 {
 	padding-left: 10rem;
 	padding-top: 1rem;
-	ackground-color: #EEE;
+	background: linear-gradient(90deg, rgba(255,115,0,0.989233193277311) 0%, rgba(245,255,148,0) 100%);
+	padding-bottom: 1rem;
 }
 
 a {
+	padding-top: 1rem;
 	padding-left: 10rem;
-	ackground-color: #EEE;
 }
 header {
 	display: flex;

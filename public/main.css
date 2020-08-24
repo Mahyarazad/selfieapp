@@ -28,7 +28,10 @@ main {
 
 h1 {
 	padding-left: 10rem;
+	background: linear-gradient(90deg, rgba(0,22,255,0.989233193277311) 0%, rgba(148,253,255,0) 100%);
 	padding-top: 1rem;
+	padding-bottom: 1rem;
+	position: relative;
 
 }
 

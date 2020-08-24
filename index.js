@@ -80,7 +80,7 @@ app.post('/api', async (request,response) => {
         let uploaded = parseInt((progress.loaded * 100) / progress.total);
         $("progress").attr('value', uploaded);
       });
-    });
+    
 
 
   response.json({
