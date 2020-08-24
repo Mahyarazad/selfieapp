@@ -34,7 +34,7 @@ app.use(express.urlencoded({ extended:true }))
 const db = require('./models/index.js');
 app.post('/api', async (request,response) => {
   const data = await request.body;
-  // const buf = new Buffer.from(data.image64.replace(/^data:image\/\w+;base64,/,""),'base64');
+  const buf = new Buffer.from(data.image64.replace(/^data:image\/\w+;base64,/,""),'base64');
   try {
     db.data.findOrCreate({
       where: {
@@ -66,21 +66,21 @@ app.post('/api', async (request,response) => {
       //     console.log(err);
       //   }
       // });
-  // s3.upload({
-  //   Key: data[data.length-1]._id+'.png',
-  //   Body: buf,
-  //   Bucket: env.Bucket,
-  //   // ACL: 'public-read'
-  //   }, function(err, data) {
-  //     if(err) {
-  //       console.log(err);
-  //     }
-  //     console.log('Successfully Uploaded!');
-  //     }).on('httpUploadProgress', function (progress) {
-  //       let uploaded = parseInt((progress.loaded * 100) / progress.total);
-  //       $("progress").attr('value', uploaded);
-  //     });
-  //   });
+  s3.upload({
+    Key: data[data.length-1]._id+'.png',
+    Body: buf,
+    Bucket: env.Bucket,
+    // ACL: 'public-read'
+    }, function(err, data) {
+      if(err) {
+        console.log(err);
+      }
+      console.log('Successfully Uploaded!');
+      }).on('httpUploadProgress', function (progress) {
+        let uploaded = parseInt((progress.loaded * 100) / progress.total);
+        $("progress").attr('value', uploaded);
+      });
+    });
 
 
   response.json({
