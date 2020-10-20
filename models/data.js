@@ -14,12 +14,29 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   data.init({
+    id:{
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true },
+
     mod: DataTypes.STRING,
     lat: DataTypes.FLOAT,
-    lon: DataTypes.FLOAT
+    lon: DataTypes.FLOAT,
+    user_id: {
+          type: DataTypes.INTEGER,
+          references: 'users', // <<< Note, its table's name, not object name
+          referencesKey: 'id' // <<< Note, its a column name
+    },
+    uname: {
+          type: DataTypes.STRING,
+          references: 'users', // <<< Note, its table's name, not object name
+          referencesKey: 'id' // <<< Note, its a column name
+    }
+
   }, {
     sequelize,
     modelName: 'data',
   });
+
   return data;
 };

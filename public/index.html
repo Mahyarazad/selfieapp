@@ -2,25 +2,27 @@
 <html>
 <head>
   <title> Selfie App with Face API </title>
-  <script src='https://api.mapbox.com/mapbox-gl-js/v1.11.1/mapbox-gl.js'></script>
-  <link href='https://api.mapbox.com/mapbox-gl-js/v1.11.1/mapbox-gl.css' rel='stylesheet'/>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
+  <link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
   <script src="p5.min.js"></script>
-  <script defer src="face-api.min.js"></script>
-  <script defer src="detection.js"></script>
+  <!-- <script defer src="face-api.min.js"></script>
+  <script defer src="detection.js"></script> -->
   <script defer src='render.js'></script>
   <meta charset="UTF-8"></meta>
   <html lang="en">
   <link rel="stylesheet" href="main.css"/>
-
+  <script defer src="logs/cuser.js"></script>
 
 </head>
 <body>
 
-  <h1> Data Selfie App </h1></br>
+  <h1 id="h1"> The Selfie App </h1></br>
   <p> Hello and Welcome to the Selfie App. This is selfie app therapy! you could write down your feeling and,</br>
-    come back later checkout your previous status. Rewinding the time and ovserving yourself could be help! </br>
+    come back later checkout your previous status. Rewinding the time and observing yourself could be help! </br>
     The app simply captures your portrait photo, stores that image in Amazon S3 storage alongside the geolocation </br>
-    information in Postgres database<a href="/api"> accessible here.</a> Also, <a href="https://github.com/justadudewhohacks/face-api.js">"face-api.js"</a> a JavaScript API for face detection and,</br>
+    information in Postgres database<a id="api" href="/api"> accessible here.</a> Also, <a href="https://github.com/justadudewhohacks/face-api.js">"face-api.js"</a> a JavaScript API for face detection and,</br>
     face recognition in the browser and nodejs with tensorflow.js was added to this app.</br>
     Courtesy of <a href="https://github.com/joeyklee">Joey Lee</a> work </p></br>
   <a id="logs" href="/logs">Records</a></br>
@@ -37,5 +39,9 @@
   <canvas id="myCanvas"/></canvas>
   <p>    </p>
   <p>    </p>
+  <a href='../user/login' id="logout">Logout</a>
+
+
+
 </body>
 </html>

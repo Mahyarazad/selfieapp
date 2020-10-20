@@ -3,11 +3,9 @@ async function getData(){
 
 
   const response = await fetch('/api');
+
   const data = await response.json();
-  console.log(data);
   const list_items = data;
-
-
 
   const list_element = document.getElementById('list');
   const pagination_element = document.getElementById('pagination');
@@ -15,7 +13,7 @@ async function getData(){
   let rows = 5;
 
   console.log(list_items);
-  function DisplayList (items, wrapper, rows_per_page, page) {
+  async function DisplayList (items, wrapper, rows_per_page, page) {
   	wrapper.innerHTML = "";
   	page--;
 
@@ -27,8 +25,17 @@ async function getData(){
     for (let i = 0; i < paginatedItems.length; i++) {
   		let item = paginatedItems[i];
 
+      const uname = document.createElement('div');
+      uname.className = item.user_id;
+      uname.id = "uname";
+      uname.textContent = "Created by: " + item.uname;
       const root = document.createElement('div');
       root.id = "container";
+      const checkbox = document.createElement('input')
+      checkbox.id = "box" ;
+      checkbox.type = "checkbox";
+      checkbox.className = item.id;
+      // checkbox.setAttribute("name",item.id);
       const mod = document.createElement('div');
       mod.className = "mod";
       const geolocation = document.createElement('div');
@@ -37,18 +44,19 @@ async function getData(){
       date.id = "date";
       const image = document.createElement('img');
       image.id = "capturedImage";
-      const space = document.createElement('div');
+      const space = document.createElement('br');
       space.id = "emptySpace";
-
-      space.innerHTML = "<br>";
       mod.textContent = item.mod;
       geolocation.textContent = item.lat + '° , ' + item.lon + '°';
       const datetostring = new Date(item.createdat).toLocaleString();
       date.textContent = 'Date: '+ datetostring;
-      image.src = 'https://mahyarazad.s3.eu-central-1.amazonaws.com/' + item._id + '.png';
-      // image.src = './pics/' + item._id + '.png';
-      image.alt = "Picture to show the Mode"
-      wrapper.append(mod,geolocation,date,image,space);
+      const link = await fetch('/api/image/' + item.id);
+      const ImageBlob = await link.blob();
+      const objectURL = URL.createObjectURL(ImageBlob);
+      image.src = objectURL;
+      //image.src = "data:image/jpeg;base64," + image;
+      image.alt = "Picture to show the Mode";
+      wrapper.append(checkbox,uname,mod,geolocation,date,image,space);
   	}
   };
 

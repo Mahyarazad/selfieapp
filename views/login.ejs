@@ -1,0 +1,24 @@
+<html>
+<head>
+
+    <title>login</title>
+    <link rel="stylesheet" href="/main.css"/>
+
+</head>
+<body>
+
+  <canvas id="canvas"> </canvas>
+  <script src="/canvas.js"></script>
+  <form method="POST"  action'/user/login'>
+
+    <h3 id="input">Email</h3><input type="text" id="input" name="email" size="30"></input></br>
+    <h3 id="input">Password</h3><input type="password" id="input" name="password" size="30"></input></br>
+    <button id="loginbtn"> Login </button>
+
+  </form>
+
+
+  <%- messages() %>
+
+</body>
+</html>

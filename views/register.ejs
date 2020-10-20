@@ -1,0 +1,46 @@
+<html>
+<head>
+
+    <title>Register</title>
+    <link rel="stylesheet" href="/main.css"/>
+</head>
+<body>
+    <% var errors; %>
+    <canvas id="canvas"> </canvas>
+    <script src="/canvas.js"></script>
+    <form method="POST" action'/user/register'>
+      <h3 id="input">Email</h3><input type="text" id="input" name="email" size="30"></input></br>
+      <h3 id="input">Username</h3><input type="text" id="input" name="username" size="30"></input></br>
+      <h3 id="input">Password</h3><input type="password" id="input" name="password" size="30"></input></br>
+      <h3 id="input">Confrim Password</h3><input type="password" id="input" name="password2" size="30"></input></br>
+      <button id="register"> Register </button>
+
+
+      <% if (errors) { %>
+        <% for (item in errors) { %>
+
+          <% let text = JSON.stringify(errors[item].msg).replace('"','') %>
+          <% text = text.replace('"','') %>
+          <% if (text === "Email is required") { %>
+            <% let stag = "email0" %>
+            <p id=<%= stag %>><%= text %></p>
+          <% } else if (text === "Email is not valid") { %>
+            <% stag = "email1" %>
+            <p id=<%= stag %>><%= text %></p>
+          <% } else if (text === "Passwords do not match") { %>
+              <% stag = "password2" %>
+              <p id=<%= stag %>><%= text %></p>
+          <% } else { %>
+            <% let tag = JSON.stringify(errors[item].param).replace('"','') %>
+            <% tag = tag.replace('"','') %>
+            <p id=<%= tag %>><%= text %></p>
+          <% } %>
+        <% }; %>
+      <% } %>
+
+
+      <%- messages() %>
+
+
+</body>
+</html>

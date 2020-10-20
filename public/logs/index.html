@@ -3,18 +3,29 @@
   <head>
     <meta charset="utf-8">
     <title> Logs </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1.12.min.js"></script>
-    <script src="log.js"></script>
+    <script defer src="log.js"></script>
+    <script defer src="cuser.js"></script>
+    <link rel="stylesheet" href="main.css"/>
   </head>
   <body>
     <h1> The Selfie App </h1></br>
     <a href="/" style="font-size:15px"> Back to Home </a><br><br>
-    <link rel="stylesheet" href="main.css"/>
+
     <main>
-        <div class="list" id="list"></div>
-        <div class="pagenumbers" id="pagination"></div>
+      <div class="list" id="list"></div>
+      <div class="pagenumbers" id="pagination"></div>
     </main>
+    <div class="flex-container">
+      <button type="button" id="btn1"> Toggle Images </button>
+      <button type="button" id="hide"> Toggle Checkboxes </button>
+      <button type="button" id="all"> Select All </button>
+      <button type="button" id="del" method="DELETE"> Delete Selected Records! </button>
 
+    </div>
 
+    <a href='../user/login' id="logout">Logout</a>
+    <script defer src="delete.js"></script>
   </body>
 </html>
