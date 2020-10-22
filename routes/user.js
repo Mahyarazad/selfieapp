@@ -56,6 +56,7 @@ router.post('/register', async(req,res)=>{
                   });
 
                 } catch (e) {
+                  console.log(e);
                   req.flash("Error","This user has been taken!");
                   res.redirect('/user/register');
                   return;
