@@ -28,8 +28,9 @@ router.post('/register', async(req,res)=>{
       email: email
     }
   });
-  // console.log(check);
-  // console.log(check.dataValues.email);
+
+  console.log(check);
+  console.log(check.dataValues.email);
   if(errors){
     console.log(errors);
     res.render('register', {
