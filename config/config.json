@@ -19,14 +19,14 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "sashgqshgytxka",
-    "password": "6f4c2c67b64c0ac10cb6ff59bc24420432d1c130fbcc4a8d64606cd76c01d57f",
-    "database": "d3s5v7bqku77rr",
+    "username": process.env.DB_USER,
+    "password": process.env.DB_PASS,
+    "database": process.env.DB_NAME,
     "port":5432,
-    "host": "ec2-54-224-124-241.compute-1.amazonaws.com",
+    "host": process.env.DB_HOST,
     "dialect": "postgres",
     "operatorsAliases": false,
-    "URI":"postgres://sashgqshgytxka:6f4c2c67b64c0ac10cb6ff59bc24420432d1c130fbcc4a8d64606cd76c01d57f@ec2-54-224-124-241.compute-1.amazonaws.com:5432/d3s5v7bqku77rr",
+    "URI":process.env.DB_URI,
     "define": {
       "createdAt": "createdat",
       "updatedAt": "updatedat"
