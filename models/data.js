@@ -30,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
     uname: {
           type: DataTypes.STRING,
           references: 'users', // <<< Note, its table's name, not object name
-          referencesKey: 'id' // <<< Note, its a column name
+          referencesKey: 'username' // <<< Note, its a column name
     }
 
   }, {

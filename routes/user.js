@@ -28,21 +28,23 @@ router.post('/register', async(req,res)=>{
       email: email
     }
   });
-
+  // console.log(check);
+  // console.log(check.dataValues.email);
   if(errors){
     console.log(errors);
     res.render('register', {
       errors:errors
     });
+  console.log(check.dataValues.username);
   } else if (check === null){
-      bcrypt.genSalt(10,  (err,salt)=>{
-        bcrypt.hash(password,salt,(err,hash)=>{
+      bcrypt.genSalt(10,  async(err,salt)=>{
+        bcrypt.hash(password,salt,async(err,hash)=>{
           if(err){
             console.log(err);
             return;
           } else {
               try {
-                db.users.findOrCreate({
+                const user = await db.users.findOrCreate({
                   where:{
                     email: email,
                     username: username,
@@ -51,21 +53,25 @@ router.post('/register', async(req,res)=>{
                     updatedat: Date.now()
                     }
                   });
+                  req.flash("Success","You are now registered and can log in");
+                  res.redirect('/user/login');
                 } catch (e) {
-                  return res.json({ status: 'error', code: '9999', message: e.message })
+                  req.flash("Error","This user has been taken!");
+                  res.redirect('/user/register');
+                  return;
                 }
               }
           });
         });
-  } else if (!check.dataValues.email === email){
-      bcrypt.genSalt(10,  (err,salt)=>{
-        bcrypt.hash(password,salt,(err,hash)=>{
+  } else if (!check.dataValues.email === email || !check.dataValues.username === username){
+      bcrypt.genSalt(10,  async(err,salt)=>{
+        bcrypt.hash(password,salt,async(err,hash)=>{
           if(err){
             console.log(err);
             return;
           } else {
               try {
-                db.users.findOrCreate({
+                const user = await db.users.findOrCreate({
                   where:{
                     email: email,
                     username: username,
@@ -74,8 +80,15 @@ router.post('/register', async(req,res)=>{
                     updatedat: Date.now()
                     }
                   });
+                  req.flash("Success","You are now registered and can log in");
+                  res.redirect('/user/login');
                 } catch (e) {
-                  return res.json({ status: 'error', code: '9999', message: e.message })
+                  req.flash("Error","This user has been taken!");
+                  res.statusCode = 404;
+                  res.setHeader('Content-Type', 'text/plain');
+                  res.end('Cannot ' + req.method + ' ' + req.url);
+                  return;
+                  // return res.json({ status: 'error', code: '9999', message: e.message })
                 }
               }
           });
@@ -87,8 +100,7 @@ router.post('/register', async(req,res)=>{
         return;
        }
 
-  req.flash("Success","You are now registered and can log in");
-  res.redirect('/users/login');
+
 
 });
 

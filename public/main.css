@@ -168,19 +168,31 @@ input {
 }
 
 #username {
-	font-size: 18px;
+	font-size: 20px;
 	text-align: left;
 	position: absolute;
-	top: 40px;
-  left: 39.6rem;
+	top: 13.8rem;
+  margin-left: 25rem;
   margin-right: 0px;
   margin-bottom: 0px;
   margin-left: 25rem;
 	line-height: 18px;
-	color: black;
+	color: red;
 	display: flex;
 }
 
+#lusername {
+	font-size: 18px;
+	text-align: left;
+	position: absolute;
+	top: 40px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 64.6rem;
+	line-height: 18px;
+	color: black;
+	display: flex;
+}
 .error {
 	font-size: 20px;
 	text-align: left;
@@ -315,6 +327,7 @@ a#logout{
 	top: 14px;
 	font-size: 18px ;
 }
+
 
 /* #username{
 	position: absolute;
