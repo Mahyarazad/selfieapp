@@ -29,8 +29,8 @@ router.post('/register', async(req,res)=>{
     }
   });
 
-  console.log(check);
-  console.log(check.dataValues.email);
+  // console.log(check);
+  // console.log(check.dataValues.email);
   if(errors){
     console.log(errors);
     res.render('register', {
@@ -54,14 +54,15 @@ router.post('/register', async(req,res)=>{
                     updatedat: Date.now()
                     }
                   });
-                  req.flash("Success","You are now registered and can log in");
-                  res.redirect('/user/login');
+
                 } catch (e) {
                   req.flash("Error","This user has been taken!");
                   res.redirect('/user/register');
                   return;
                 }
               }
+              req.flash("Success","You are now registered and can log in");
+              res.redirect('/user/login');
           });
         });
   } else if (!check.dataValues.email === email || !check.dataValues.username === username){

@@ -126,6 +126,9 @@ input {
 
 }
 
+.Success {
+  font-size: 20px;
+}
 #input {
 	font-size: 20px;
 	position: relative;
