@@ -34,7 +34,7 @@ router.post('/register', async(req,res)=>{
     console.log(e);
   }
 
-  // console.log(check);
+  console.log(check);
   // console.log(check.dataValues.email);
   if(errors){
     console.log(errors);
@@ -50,14 +50,12 @@ router.post('/register', async(req,res)=>{
             return;
           } else {
               try {
-                const user = await db.users.findOrCreate({
-                  where:{
+                const user = await db.users.create({
                     email: email,
                     username: username,
                     password: hash,
                     createdat: Date.now(),
                     updatedat: Date.now()
-                    }
                   });
 
                 } catch (e) {
@@ -79,14 +77,12 @@ router.post('/register', async(req,res)=>{
             return;
           } else {
               try {
-                const user = await db.users.findOrCreate({
-                  where:{
+                const user = await db.users.create({
                     email: email,
                     username: username,
                     password: hash,
                     createdat: Date.now(),
                     updatedat: Date.now()
-                    }
                   });
                   req.flash("Success","You are now registered and can log in");
                   res.redirect('/user/login');
