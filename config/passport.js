@@ -6,7 +6,8 @@ const bcrypt = require('bcryptjs');
 const path  = require('path');
 const Sequelize = require('sequelize');
 const AWS = require("aws-sdk");
-const config = new AWS.S3({
+
+const s3 = new AWS.S3({
   accessKeyId: process.env.S3_KEY,
   secretAccessKey: process.env.S3_SECRET,
   region: process.env.S3_REGION,
@@ -84,7 +85,8 @@ module.exports = function(app,passport){
       // const the_file = new Blob([Base64.atob(base64Image)],  {type: 'image/png', encoding: 'utf-8'});
 
 
-    const s3 = new AWS.S3(config);
+
+    console.log(s3);
     s3.upload({
       Key: image_id +'.jpeg',
       Body: buf,
@@ -110,9 +112,8 @@ module.exports = function(app,passport){
   });
 
   app.get('/api/image/:id' , isLoggedIn, async (request,response) => {
-    const s3 = await new AWS.S3(config);
     s3.getObject(
-      { Bucket: config.bucket, Key: request.params.id+ '.jpeg' },
+      { Bucket: 'faceapiapp', Key: request.params.id+ '.jpeg' },
       function (error, data) {
         if (error != null) {
           console.log("Failed to retrieve an object: " + error);
