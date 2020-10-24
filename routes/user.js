@@ -23,11 +23,15 @@ router.post('/register', async(req,res)=>{
   req.checkBody('password2', 'Passwords do not match').equals(req.body.password);
 
   let errors = req.validationErrors();
-  let check = await db.users.findOne({
-    where: {
-      email: email
-    }
-  });
+  try {
+    let check = await db.users.findOne({
+      where: {
+        email: email
+      }
+    });
+  } catch (e) {
+    console.log(e);
+  }
 
   // console.log(check);
   // console.log(check.dataValues.email);
