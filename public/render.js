@@ -47,6 +47,7 @@ if (button){
         // video.play();
     })
     let canvas = await document.createElement('canvas');
+    canvas.id = 'detection';
     canvas.width = video.width;
     canvas.height = video.height;
     let context = canvas.getContext('2d');
