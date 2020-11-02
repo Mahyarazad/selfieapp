@@ -115,8 +115,6 @@ router.get('/login', (req,res)=>{
 
 
 router.post('/login', async(req, res, next)=>{
-  const email = await req.body.email;
-  req.checkBody('email', 'Email is not valid').isEmail();
   passport.authenticate('local',  {
       successRedirect:'/',
       failureRedirect:'/user/login',

@@ -201,27 +201,32 @@ module.exports = function(app,passport){
     });
 
   passport.use(new LocalStrategy({ usernameField: 'email' },async function(email,password,done){
-    await db.users.findAll({
-      where: {email: email}
-    }).then(
-      async ()=>{
-        if (!email){
-          return done(null, false, { message: 'Incorrect email!' });
-        };
-        let query = await db.users.findAll({
-              where: {email: email}
+
+      await db.users.findAll({
+          where: {email: email}
+      }).then(
+        async ()=> {
+          if (!email){
+            return done(null, false, { message: 'Incorrect email!' });
+          };
+          let query = await db.users.findAll({
+                where: {email: email}
+              });
+          query = query[0];
+          if (query != null){
+            bcrypt.compare(password,query.dataValues.password).then( (result) =>{
+              if(result === true){
+                return done(null,{user:query.dataValues.email});
+              } else {
+                return done(null,false);
+              }
             });
-        query = query[0];
-        bcrypt.compare(password,query.dataValues.password).then( (result) =>{
-          if(result === true){
-            return done(null,{user:query.dataValues.email});
           } else {
-            return done(null,false);
+            return done(null, false);
           }
         });
-    });
-
   }));
+
   passport.serializeUser(function(user, done) {
     done(null, user);
   });
