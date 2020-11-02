@@ -17,6 +17,20 @@
     "database": "database_test",
     "host": "127.0.0.1",
     "dialect": "mysql"
+  },
+  "production": {
+    "username": "poxmvhlyzcjvvo",
+    "password": "40117ea028068177806444aff9c8bad36d7e474c91c9f9e14a218820f9093f82",
+    "database": "d1kqjf3lvi093v",
+    "port":5432,
+    "host": "ec2-54-160-161-214.compute-1.amazonaws.com",
+    "dialect": "postgres",
+    "operatorsAliases": false,
+    "URI":"postgres://sashgqshgytxka:6f4c2c67b64c0ac10cb6ff59bc24420432d1c130fbcc4a8d64606cd76c01d57f@ec2-54-224-124-241.compute-1.amazonaws.com:5432/d3s5v7bqku77rr",
+    "define": {
+      "createdAt": "createdat",
+      "updatedAt": "updatedat"
+    }
   }
 
 }
