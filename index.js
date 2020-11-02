@@ -20,9 +20,6 @@ const client = new Client({
 
 // const csrfMiddlewear = csrf({cookie:true});
 
-
-
-
 app.listen(port, () => console.log("Listening at port: %s",port));
 app.use(express.json({ limit: '1mb' }));
 
@@ -32,7 +29,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(session({
-  secret: 'ThisLIUACBHJAKdnkalsd872364',
+  secret: process.env.API_KEY,
   resave: true,
   saveUninitialized: true
 }));
