@@ -118,7 +118,7 @@ router.post('/login', async(req, res, next)=>{
   passport.authenticate('local',  {
       successRedirect:'/',
       failureRedirect:'/user/login',
-      badRequestMessage: req.flash("Error","Check your Username and Password!"), //missing credentials
+      // badRequestMessage: req.flash(message), //missing credentials
       failureFlash: true
     })(req, res, next);
 

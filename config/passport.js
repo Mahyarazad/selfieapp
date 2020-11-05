@@ -207,7 +207,7 @@ module.exports = function(app,passport){
       }).then(
         async ()=> {
           if (!email){
-            return done(null, false, { message: 'Incorrect email!' });
+            return done(null, false);
           };
           let query = await db.users.findAll({
                 where: {email: email}
@@ -218,11 +218,11 @@ module.exports = function(app,passport){
               if(result === true){
                 return done(null,{user:query.dataValues.email});
               } else {
-                return done(null,false);
+                return done(null,false,{message :'Oops! Incorrect Password.'});
               }
             });
           } else {
-            return done(null, false);
+            return done(null, false,{message :'Oops! Incorrect Email.'});
           }
         });
   }));
