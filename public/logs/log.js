@@ -1,6 +1,7 @@
 
-async function getData(){
 
+async function getData(){
+  // if (document.URL === '/api/:uname') console.log(document.URL);
 
   const response = await fetch('/api');
 
@@ -50,13 +51,14 @@ async function getData(){
       geolocation.textContent = item.lat + '° , ' + item.lon + '°';
       const datetostring = new Date(item.createdat).toLocaleString();
       date.textContent = 'Date: '+ datetostring;
-      const link = await fetch('/api/image/' + item.id);
-      const ImageBlob = await link.blob();
-      const objectURL = URL.createObjectURL(ImageBlob);
-      image.src = objectURL;
-      //image.src = "data:image/jpeg;base64," + image;
-      image.alt = "Picture to show the Mode";
-      wrapper.append(checkbox,uname,mod,geolocation,date,image,space);
+      // const link = await fetch('/api/image/' + item.id);
+      // const ImageBlob = await link.blob();
+      // const objectURL = URL.createObjectURL(ImageBlob);
+      // image.src = objectURL;
+      // //image.src = "data:image/jpeg;base64," + image;
+      // image.alt = "Picture to show the Mode";
+      // wrapper.append(checkbox,uname,mod,geolocation,date,image,space);
+      wrapper.append(checkbox,uname,mod,geolocation,date,space);
   	}
   };
 

@@ -134,19 +134,33 @@ module.exports = function(app,passport){
       dialect: 'postgres',
       storage: './data'
     });
-    // db.find({}).sort({Time:-1}).exec((err,data) => {
-      //   if (err) {
-      //     response.end();
-      //     retrun(err)
-      //   }
-      //   response.json(data);
-      //
-      // });
-
-    //console.log(image);
     db.data.findAll({
         order: sequelize.literal('createdat DESC')
       }).then(data => response.json(data))
+    });
+
+    app.get('/api/:uname' , isLoggedIn, async(req,res) => {
+      const Sequelize = require('sequelize');
+      const sequelize = new Sequelize({
+        // The `host` parameter is required for other databases
+        // host: 'localhost'
+        dialect: 'postgres',
+        storage: './data'
+      });
+      let {user} = req.session.passport.user;
+
+      let query = await db.users.findAll({
+            where: {email: user}
+          });
+      query = query[0];
+      let uid = query.dataValues.user_id;
+      console.log(uid);
+      let query_ = await db.data.findAll({
+            where: {user_id: uid},
+            order: sequelize.literal('createdat DESC')
+          });
+
+      res.json(query_);
     });
 
     app.delete('/api/:id', isLoggedIn, async(req,res) =>{

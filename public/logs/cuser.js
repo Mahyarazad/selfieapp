@@ -6,10 +6,32 @@
       'Content-Type': 'application/json'
     },
   });
-  const user = await response.json()
-  const elem = document.createElement('div');
-  elem.id = "lusername";
-  elem.textContent = "Logged-in as " + user.user;
-  document.body.appendChild(elem);
 
+  const user = await response.json()
+  const elem = document.createElement('button');
+  const sw = document.createElement('button');
+  elem.id = "lusername";
+  elem.textContent = "Filter " + user.user + " Posts";
+  sw.id = "switch";
+  sw.textContent = "Show All"
+  $("body").append(elem,sw);
+
+  $.getScript('log.js', function()
+    {
+        // script is now loaded and executed.
+    });
+  $("#lusername").click(()=>{
+    $.getScript('ulog.js', function()
+      {
+          // script is now loaded and executed.
+
+      });
+    });
+  $("#switch").click(()=>{
+    $.getScript('log.js', function()
+      {
+          // script is now loaded and executed.
+
+      });
+    });
 })();

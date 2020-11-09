@@ -1,7 +1,7 @@
-  const express = require('express');
+const express = require('express');
 const router = require('express').Router();
 const Base64 = require('js-base64');
-const app = express();
+
 const fs = require("fs");
 const port = process.env.PORT || 3000;
 const expressValidator = require('express-validator');
@@ -19,10 +19,14 @@ const client = new Client({
 });
 
 // const csrfMiddlewear = csrf({cookie:true});
+const http = require('http');
+const enforce = require('express-sslify');
+const app = express();
 
 app.listen(port, () => console.log("Listening at port: %s",port));
-app.use(express.json({ limit: '1mb' }));
 
+app.use(express.json({ limit: '1mb' }));
+app.use(enforce.HTTPS());
 app.use(require('connect-flash')());
 
 app.set('views', path.join(__dirname, 'views'));
@@ -71,6 +75,7 @@ const passport = require('passport')
 app.use(passport.initialize());
 app.use(passport.session());
 require('./config/passport')(app,passport);
+app.use(enforce.HTTPS({ trustProtoHeader: true }))
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/user',require('./routes/user'));
 const db = require('./models/index.js');

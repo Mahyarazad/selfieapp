@@ -123,14 +123,28 @@ main .list .item:hover {
 	font-weight: 320;
 }
 
-#lusername {
-	font-size: 18px;
+#lusername{
+	font-size: 15px;
 	text-align: left;
 	position: absolute;
 	top: 40px;
   margin-right: 0px;
   margin-bottom: 0px;
   margin-left: 64.6rem;
+	line-height: 18px;
+	color: black;
+	display: flex;
+}
+
+
+#switch {
+	font-size: 15px;
+	text-align: left;
+	position: absolute;
+	top: 40px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 73.2rem;
 	line-height: 18px;
 	color: black;
 	display: flex;
