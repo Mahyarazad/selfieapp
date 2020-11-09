@@ -26,7 +26,7 @@ const app = express();
 app.listen(port, () => console.log("Listening at port: %s",port));
 
 app.use(express.json({ limit: '1mb' }));
-app.use(enforce.HTTPS());
+
 app.use(require('connect-flash')());
 
 app.set('views', path.join(__dirname, 'views'));
