@@ -123,32 +123,16 @@ main .list .item:hover {
 	font-weight: 320;
 }
 
-#lusername{
+#switch,#lusername {
 	font-size: 15px;
 	text-align: left;
-	position: absolute;
-	top: 40px;
-  margin-right: 0px;
-  margin-bottom: 0px;
-  margin-left: 64.6rem;
+	position: relative;
+	left: 10.5rem;
 	line-height: 18px;
 	color: black;
 	display: flex;
 }
 
-
-#switch {
-	font-size: 15px;
-	text-align: left;
-	position: absolute;
-	top: 40px;
-  margin-right: 0px;
-  margin-bottom: 0px;
-  margin-left: 73.2rem;
-	line-height: 18px;
-	color: black;
-	display: flex;
-}
 .mod{
 	padding-top: 1rem;
 	padding-left: 4rem;
@@ -224,10 +208,6 @@ button#switch:hover, button#lusername:hover, a#home:hover, a#logout:hover {
 	background-color: #FFD433;
 }
 
-/* button:hover {
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-	background-color: #FFD433;
-} */
 
 a#logout{
 	position: absolute;

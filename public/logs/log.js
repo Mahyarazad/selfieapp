@@ -58,7 +58,7 @@ async function getData(){
       //image.src = "data:image/jpeg;base64," + image;
       image.alt = "Picture to show the Mode";
       wrapper.append(checkbox,uname,mod,geolocation,date,image,space);
-    
+
   	}
   };
 
