@@ -56,7 +56,7 @@ $(document).ready(()=>{
         dataType:'json',
         data: {id : record},
         success: function(response){
-            window.location.pathname='https://selfiefaceapi.herokuapp.com/logs/';
+            window.location.href='/logs';
         },
         error: function(err){
           console.log(err);

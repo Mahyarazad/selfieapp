@@ -174,7 +174,7 @@ module.exports = function(app,passport){
       });
 
       params = {
-        Bucket: config.bucket,
+        Bucket: process.env.S3_BUCKET,
         Delete:{
           Objects: [{
             Key: data.id+'.jpeg'
