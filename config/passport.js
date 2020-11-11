@@ -181,27 +181,12 @@ module.exports = function(app,passport){
           }]
         }
       };
-      // console.log(params);
-      const s3 = await new AWS.S3(config);
+
+
       s3.deleteObjects(params, function(err, data) {
         if (err) console.log(err, err.stack); // an error occurred
         else     console.log(data);           // successful response
-        /*
-        data = {
-         Deleted: [
-            {
-           DeleteMarker: true,
-           DeleteMarkerVersionId: "A._w1z6EFiCF5uhtQMDal9JDkID9tQ7F",
-           Key: "objectkey1"
-          },
-            {
-           DeleteMarker: true,
-           DeleteMarkerVersionId: "iOd_ORxhkKe_e8G8_oSGxt2PjsCZKlkt",
-           Key: "objectkey2"
-          }
-         ]
-        }
-        */
+        
       });
       db.data.destroy({
         where: {
