@@ -1,7 +1,6 @@
 const express = require('express');
 const router = require('express').Router();
 const Base64 = require('js-base64');
-
 const fs = require("fs");
 const port = process.env.PORT || 3000;
 const expressValidator = require('express-validator');
@@ -75,7 +74,7 @@ const passport = require('passport')
 app.use(passport.initialize());
 app.use(passport.session());
 require('./config/passport')(app,passport);
-app.use(enforce.HTTPS({ trustProtoHeader: true }))
+// app.use(enforce.HTTPS({ trustProtoHeader: true }))
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/user',require('./routes/user'));
 const db = require('./models/index.js');

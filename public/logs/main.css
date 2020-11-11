@@ -76,7 +76,7 @@ main .list .item:hover {
 	background-color: #FDEFBB;
 
 	margin: 5px;
-	transition: 0.4s;
+	transition: 0.2s;
 
 	color: black;
 	font-size: 13px;
@@ -169,9 +169,10 @@ main .list .item:hover {
 
 .flex-container button {
 
-	padding: 10px 24px;
+	padding: 7px 24px;
 	background-color: white ;
 	margin-right: 10px;
+	border: 1px solid #CCC;
 	border-radius: 25px;
 	border-color: #AFACAC ;
 	text-align: center;
@@ -195,16 +196,69 @@ main .list .item:hover {
 
 }
 
-a#logout{
-	position: absolute;
-	left: 54.6rem;
-	top: 0px;
-	font-size: 18px ;
+button#lusername {
+	top: 10rem;
 }
 
-div#username{
+button#switch {
+	top: 12rem;
+}
+
+button#switch, button#lusername {
+	position: absolute;
+	right: 69rem !important;
+	width: 8rem;
+	padding: 4px 20px;
+	background-color: #FDEFBB ;
+	border-radius: 25px;
+	border: 1px solid #CCC;
+	cursor: pointer;
+	transition: 0.3s;
+	justify-content: center;
+	color:black;
+
+}
+
+button#switch:hover, button#lusername:hover, a#home:hover, a#logout:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+	background-color: #FFD433;
+}
+
+/* button:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+	background-color: #FFD433;
+} */
+
+a#logout{
 	position: absolute;
 	left: 65rem;
-	top: 40px;
+	top: 20px;
 	font-size: 18px ;
+	text-decoration: none;
+	border-radius: 20px;
+	background-color: rgba(0,0,0,0.03) ;
+	padding: 2px 20px;
+
+}
+
+a#logout, button#switch{
+	color: inherit;
+
+}
+
+
+#home{
+	position: absolute;
+	left: 10.5rem;
+	top: 5.8rem;
+	font-size: 18px ;
+  padding: 20px 8px;
+  border-radius: 20px;
+  background-color: rgba(0,0,0,0.02) ;
+  color: black;
+	border-radius: 20px;
+	border: 1px solid #CCC;
+	cursor: pointer;
+	transition: 0.3s;
+	text-decoration: none;
 }

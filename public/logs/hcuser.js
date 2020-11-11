@@ -7,7 +7,9 @@
   });
 
   const user = await response.json()
-  const elem = document.createElement('button');
+  const elem = document.createElement('a');
   elem.id = "lusername";
+  elem.text = user.user;
+  elem.href = "https://selfiefaceapi.herokuapp.com/logs/"
   $("body").append(elem);
 })();

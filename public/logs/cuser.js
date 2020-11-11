@@ -11,8 +11,10 @@
   const elem = document.createElement('button');
   const sw = document.createElement('button');
   elem.id = "lusername";
-  elem.textContent = "Filter " + user.user + " Posts";
+  elem.className = "lusername";
+  elem.textContent = user.user;
   sw.id = "switch";
+  sw.className = "switch";
   sw.textContent = "Show All"
   $("body").append(elem,sw);
 
