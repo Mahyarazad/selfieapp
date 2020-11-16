@@ -40,8 +40,7 @@ app.use(bodyParser.urlencoded({
   extended: false
 }));
 app.use(bodyParser.json());
-app.use(favicon(__dirname + '/—Pngtree—continuous one line drawing of_5254318.png'));
-
+app.use(favicon(path.join(__dirname,'public','—Pngtree—continuous one line drawing of_5254318.ico')));
 app.use(require('connect-flash')());
 app.use(function (req, res, next) {
   res.locals.messages = require('express-messages')(req, res);
