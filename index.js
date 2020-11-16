@@ -7,7 +7,6 @@ const expressValidator = require('express-validator');
 const session = require('express-session');
 const path  = require('path');
 const shortid = require('shortid');
-const favicon = require('serve-favicon');
 const {Client} = require('pg');
 const bodyParser = require('body-parser');
 // const csrf = require('csrf');
@@ -73,6 +72,6 @@ app.use(passport.session());
 require('./config/passport')(app,passport);
 app.use(enforce.HTTPS({ trustProtoHeader: true }))
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(favicon(path.join(__dirname,'public','—Pngtree—continuous one line drawing of_5254318.ico')));
+app.use('/favicon.ico', express.static(path.join(__dirname, 'public')));
 app.use('/user',require('./routes/user'));
 const db = require('./models/index.js');
