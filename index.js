@@ -40,7 +40,6 @@ app.use(bodyParser.urlencoded({
   extended: false
 }));
 app.use(bodyParser.json());
-app.use(favicon(path.join(__dirname,'public','—Pngtree—continuous one line drawing of_5254318.ico')));
 app.use(require('connect-flash')());
 app.use(function (req, res, next) {
   res.locals.messages = require('express-messages')(req, res);
@@ -74,5 +73,6 @@ app.use(passport.session());
 require('./config/passport')(app,passport);
 app.use(enforce.HTTPS({ trustProtoHeader: true }))
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(favicon(path.join(__dirname,'public','—Pngtree—continuous one line drawing of_5254318.ico')));
 app.use('/user',require('./routes/user'));
 const db = require('./models/index.js');
