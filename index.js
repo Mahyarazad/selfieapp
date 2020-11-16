@@ -7,7 +7,7 @@ const expressValidator = require('express-validator');
 const session = require('express-session');
 const path  = require('path');
 const shortid = require('shortid');
-const mysql = require('mysql');
+const favicon = require('serve-favicon');
 const {Client} = require('pg');
 const bodyParser = require('body-parser');
 // const csrf = require('csrf');
@@ -40,8 +40,7 @@ app.use(bodyParser.urlencoded({
   extended: false
 }));
 app.use(bodyParser.json());
-// app.use(cookieParser());
-// app.use(csrfMiddlewear);
+app.use(favicon(__dirname + '/—Pngtree—continuous one line drawing of_5254318.png'));
 
 app.use(require('connect-flash')());
 app.use(function (req, res, next) {
