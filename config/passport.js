@@ -186,7 +186,7 @@ module.exports = function(app,passport){
       s3.deleteObjects(params, function(err, data) {
         if (err) console.log(err, err.stack); // an error occurred
         else     console.log(data);           // successful response
-        
+
       });
       db.data.destroy({
         where: {
@@ -200,7 +200,7 @@ module.exports = function(app,passport){
     });
 
   passport.use(new LocalStrategy({ usernameField: 'email' },async function(email,password,done){
-
+      email = email.replace(/\s/g,'');
       await db.users.findAll({
           where: {email: email}
       }).then(
