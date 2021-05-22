@@ -174,11 +174,12 @@ input {
 
 #lusername {
 	top: 40px;
-  left: 64.6rem;
+  left: 85rem;
 }
 
 a#logout{
-	margin-left: 64.6rem;
+
+	margin-left: 85rem;
 	top: 10px;
 }
 
