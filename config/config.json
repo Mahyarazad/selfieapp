@@ -1,22 +1,16 @@
 {
   "development": {
-    "username": "apple",
-    "password": "password",
-    "database": "apple",
-    "host": "localhost",
-    "port": 5324,
+    "user": "****",
+    "password": "****",
+    "database": "****",
+    "URI": "****",
+    "host":"****",
+    "port": 5432,
+    "ssl": { "rejectUnauthorized": false },
     "dialect": "postgresql",
     "define": {
       "createdAt": "createdat",
       "updatedAt": "updatedat"
     }
-  },
-  "test": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
   }
-
 }
