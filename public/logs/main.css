@@ -211,7 +211,7 @@ button#switch:hover, button#lusername:hover, a#home:hover, a#logout:hover {
 
 a#logout{
 	position: absolute;
-	left: 65rem;
+	left: 85rem;
 	top: 20px;
 	font-size: 18px ;
 	text-decoration: none;
