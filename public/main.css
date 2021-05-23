@@ -15,7 +15,7 @@ $bluebell: #979fd0;
 .fancy-spinner div {
   position: absolute !important;
 	margin-left: 37rem !important;
-	margin-top: 15rem !important;
+	margin-top: 12rem !important;
   width: 120px !important;
   height: 120px !important;
   border-radius: 50%;
@@ -38,7 +38,7 @@ $bluebell: #979fd0;
           animation-delay: 1s;
 }
 .fancy-spinner div.dot {
-  margin-left: 36rem !important;
+	margin-left: 36rem !important;
   width: 0px !important;
   height: 0px !important;
   background: #979fd0;
@@ -96,15 +96,13 @@ header {
 } */
 
 h1 {
+  background-image: url("https://amymhaddad.s3.amazonaws.com/oriental-tiles.png");
 	padding-left: 10rem;
+  width: 100%;
 	color: white;
-	background: linear-gradient(90deg, rgba(0,22,255,0.989233193277311) 0%, rgba(148,253,255,0) 100%);
 	padding-top: 1rem;
 	padding-bottom: 1rem;
-	position: relative;
-
-
-
+	position: fixed;
 }
 
 p {
@@ -170,30 +168,25 @@ input {
 	display: flex;
 }
 
-
-
 #lusername {
 	top: 40px;
   left: 85rem;
 }
 
 a#logout{
-
 	margin-left: 85rem;
 	top: 10px;
 }
 
 a#logout,#lusername{
-  position: absolute;
+  position: fixed;
   font-size: 18px ;
   padding: 2px 18px;
   border-radius: 20px;
   background-color: rgba(0,0,0,0.05);
-  color: black;
+  color: white;
   text-decoration: none;
 }
-
-
 
 .error {
 	font-size: 20px;
@@ -262,7 +255,7 @@ main .list .item:hover {
 }
 
 #submit, #logs{
-  position: absolute;
+
   width: 150;
   padding: 2px 8px;
   border-radius: 20px;
@@ -273,9 +266,14 @@ main .list .item:hover {
   text-decoration: none;
 }
 
+#MainParagragh{
+  margin-top: 4.5em;
+}
+
 #logs {
-	font-size: 20px ;
-  top: 72px;
+  position: absolute;
+	font-size: 30px ;
+  top: 2.5em;
 	left: 10rem ;
   width: 150;
 }
@@ -347,18 +345,6 @@ main .list .item:hover {
 	background-color: rgb(120, 120, 120);
 	cursor: hand;
 }
-
-
-
-
-/* #username{
-	position: absolute;
-	margin-left: 64.6rem;
-	top: 40px;
-	font-size: 18px ;
-	color: black;
-} */
-
 
 .Success{
 	position: absolute;
