@@ -16,14 +16,14 @@ const http = require('http');
 // const cookieParser = require('cookie-parser');
 const config = require(__dirname + '/config/config.json');
 
-const client = new Client(
+const client = new Client({
     host: process.env.DB_HOST,
     port:5432,
     user: process.env.DB_USER,
     database:process.env.DB_NAME,
     password:process.env.DB_PASS,
     connectionString: process.env.DB_URI
-);
+});
 
 client.connect(err => {
   if (err) {
