@@ -14,7 +14,7 @@ $bluebell: #979fd0;
 }
 .fancy-spinner div {
   position: absolute !important;
-	margin-left: 40rem !important;
+	margin-left: 37rem !important;
 	margin-top: 15rem !important;
   width: 120px !important;
   height: 120px !important;
@@ -38,7 +38,7 @@ $bluebell: #979fd0;
           animation-delay: 1s;
 }
 .fancy-spinner div.dot {
-	margin-left: 29rem !important;
+  margin-left: 36rem !important;
   width: 0px !important;
   height: 0px !important;
   background: #979fd0;
