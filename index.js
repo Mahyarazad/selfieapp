@@ -89,15 +89,15 @@ app.use('/favicon.ico', express.static(path.join(__dirname, 'public', 'favicon.i
 app.use('/user', require('./routes/user'));
 const db = require('./models/index.js');
 
-const privateKey = fs.readFileSync( 'privateKey.key' );
-const certificate = fs.readFileSync( 'certificate.crt' );
+// const privateKey = fs.readFileSync( 'privateKey.key' );
+// const certificate = fs.readFileSync( 'certificate.crt' );
 
-https.createServer(
-  {
-      key: privateKey,
-      cert: certificate
-  },app).listen(port);
+// https.createServer(
+//   {
+//       key: privateKey,
+//       cert: certificate
+//   },app).listen(port);
 
-// app.listen(port, () => {
-//   console.log(`Example app listening at http://localhost:${port}`)
-// })
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
+})
