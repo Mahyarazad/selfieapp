@@ -18,6 +18,7 @@ h1 {
 	padding-top: 1rem;
 	padding-bottom: 1rem;
 	position: fixed;
+	z-index: 1;
 }
 
 a {
@@ -103,20 +104,12 @@ main .list .item:hover {
 	/* justify-content: center; */
 }
 
-#geolocation{
+#geolocation, #date{
 	padding-left: 4rem;
 	justify-content: center;
 	color:#708090;
-	font-weight: 100;
+	font-size:11px;
 }
-
-#date{
-	padding-left: 4rem;
-	justify-content: center;
-	color:#708090;
-	font-weight: 100;
-}
-
 
 #uname{
 	padding-top: 1rem;
@@ -124,6 +117,7 @@ main .list .item:hover {
 	justify-content: center;
 	font-weight: 200;
 	color: #708090;
+	font-size: 12px;
 }
 
 #switch,#lusername {
@@ -215,7 +209,7 @@ button#switch:hover, button#lusername:hover, a#home:hover, a#logout:hover {
 
 
 a#logout{
-	position: absolute;
+	position: fixed;
 	left: 85rem;
 	top: 10px;
 	font-size: 18px ;
@@ -224,6 +218,7 @@ a#logout{
 	background-color: rgba(0,0,0,0.03) ;
 	padding: 2px 20px;
 	color: white;
+	z-index: 1;
 }
 
 a#logout:hover {
